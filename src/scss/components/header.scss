@@ -1,0 +1,88 @@
+.header {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 100px;
+	z-index: 2100;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	//background-color: $color-white;
+	margin: 0 auto;
+
+
+	&__menu {
+		display: flex;
+		background:#fafafa;
+	}
+
+	&__list {
+		text-align: right;
+		position: relative;
+		
+		&__hover{
+			background: url(../images/line_1.svg) no-repeat center center transparent;
+			position: absolute;
+			width:104px;
+			height:156px;
+			top: -101px;
+			z-index: 0;
+			display: block;
+			left: 7px;
+		}
+	}
+
+	&__link {
+		position: relative;
+		display: inline-flex;
+		justify-content: center;
+		margin: 0 2px 0 30px;
+		font-size: 18px;
+		text-align: center;
+		color: #282A33;
+		font-family: $font-third;
+		z-index: 1;
+
+	}
+
+	@include desktop {
+		padding: 0 20px;
+		max-width: 1180px;
+	}
+
+	@include tablet {
+		padding: 0 20px;
+		max-width: 100%;
+		display: none;
+	}
+
+	&__burger {
+		z-index: 100;
+		flex-direction: column;
+		margin: (-6.5px / 2) 0;
+		margin-left: auto;
+		width: 39px;
+		color: $color-black;
+
+		span {
+			display: block;
+			margin: 6.5px 0;
+			width: 39px;
+			height: 2px;
+			background-color: currentColor;
+			transition: $duration-normal;
+		}
+
+		@include active {
+			span {
+				&:first-child {
+					transform: translate(0, 8px) rotate(-45deg);
+				}
+
+				&:last-child {
+					transform: translate(0, -6px) rotate(45deg);
+				}
+			}
+		}
+	}
+}

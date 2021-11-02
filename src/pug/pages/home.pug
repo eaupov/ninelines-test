@@ -1,0 +1,71 @@
+main.home
+	img(src=`${baseDir}images/logo.svg` alt="" id="logo")
+
+	section#summary.section__hello
+		.section__hello__left
+			#title
+				span
+					| #{data.home.candidate.name}
+				| #{data.home.candidate.post}
+			p#text
+				| #{data.home.candidate.text}
+
+		.section__hello__right
+			ul
+				li: | mail@gmail.com
+				li: | +7 (999) 000-00-00
+				li: | г. Иннополис
+
+			ul#soc_link
+				each object_soc, key in data.share.list
+					li 
+						a(id=`${object_soc}` href="#")
+	
+	section#about.section__about
+		.section__about__left
+			#title Опыт работы
+			each object in data.work_exp
+				.work-exp
+					.work-exp__data #{object.data}
+					.work-exp__post #{object.post}
+						each object_post_ico, key in object.post_ico
+							img(src=`${baseDir}images/work_exp_${object_post_ico}.svg` alt=`${object.post}`)
+					.work-exp__location 
+						if(object.ico)
+							img(src=`${object.ico}` alt=`${object.name}`)
+						if(object.name) 
+							strong #{object.name}
+						span #{object.location}
+					.work-exp__text #{object.text}
+					if(object.links)
+						ul.work-exp__links
+							each object_link in object.links
+								li: a(href=object_link.href) #{object_link.text}
+		.section__about__bg
+		
+		.section__about__right
+			#title Образование
+			each object in data.edu
+				.edu
+					.edu__ico
+						each object_ico, key in object.ico
+							if object.ico.length==1
+								img(src=`${baseDir}images/edu_${object_ico}.svg` alt=`${object.spec}`)
+							else 
+								img(class="multi" src=`${baseDir}images/edu_${object_ico}.svg` alt=`${object.spec}` )
+					.edu__spec #{object.spec}
+					if(object.school)
+						each object_school in object.school
+							.edu__school !{object_school}
+		
+		
+
+	section#skills.section__skills
+		#title Навыки
+		.section__skills__wrap-skills
+			each object_skills in data.skills
+				.section__skills__wrap-skills__one-skill 
+					.section__skills__wrap-skills__one-skill__title 
+						| #{object_skills.title}
+					p.section__skills__wrap-skills__one-skill__text
+						| #{object_skills.text}

@@ -1,0 +1,10 @@
+header.header
+	nav.header__menu
+		.header__list
+			each object, key in data.header.menu
+				a.header__link.js-to-anchor(
+					href=object.url
+					data-link=key
+				)
+					!= object.name
+			.header__list__hover
