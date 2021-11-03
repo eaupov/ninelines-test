@@ -1,10 +1,11 @@
 extends pug/base
 
 prepend vars
-	//-
 
 append vars
-	//-
+	- title = 'Эмиль Аюпов - Тестовое задание'
+	- meta.ogImage = `${baseDir}images/share_img.png`
+	- meta.ogTitle = `Эмиль Аюпов - Тестовое задание`
 
 block content
 	include pug/data

@@ -10,10 +10,28 @@
 	//background-color: $color-white;
 	margin: 0 auto;
 
-
 	&__menu {
 		display: flex;
 		background:#fafafa;
+
+		&.is-hidden{
+			display: flex !important;
+		}
+
+		@include mobile {
+			display: none;
+			padding: 60px 40px 235px;
+			background: url(../images/time.svg) no-repeat center bottom #fafafa;
+
+			&.is-active{
+				display: flex;
+				width: 100%;
+			}
+
+			&.is-hidden{
+				display: none !important;
+			}
+		}
 	}
 
 	&__list {
@@ -23,12 +41,26 @@
 		&__hover{
 			background: url(../images/line_1.svg) no-repeat center center transparent;
 			position: absolute;
-			width:104px;
-			height:156px;
+			width: 104px;
+			height: 156px;
 			top: -101px;
 			z-index: 0;
 			display: block;
 			left: 7px;
+			
+			@include mobile {
+				background-image: url(../images/line_1_mobile.svg);
+				top: -29px;
+				left: 19px;
+				width: 48px;
+				height: 70px;
+			}
+		}
+
+		@include mobile {
+			display: flex;
+			width: 100%;
+			flex-direction: column;
 		}
 	}
 
@@ -43,6 +75,34 @@
 		font-family: $font-third;
 		z-index: 1;
 
+		@include mobile {
+			margin: 0 0 40px 0;
+			justify-content: flex-start;
+			font-size: 26px;
+			line-height: 31px;
+		}
+	}
+
+	&__burger {
+		position: absolute;
+		cursor: pointer;
+		background: url(../images/menu_burger.svg) no-repeat center center #fafafa;
+		width: 26px;
+		height: 21px;
+		top: 30px;
+		right: 20px;
+		display: none;
+
+		&.is-active{
+			background: url(../images/menu_burger_close.svg) no-repeat center center transparent;
+			transition: $duration-normal;
+			z-index: 10;
+			height: 21px;
+		}
+
+		@include mobile {
+			display: block;
+		}
 	}
 
 	@include desktop {
@@ -53,36 +113,9 @@
 	@include tablet {
 		padding: 0 20px;
 		max-width: 100%;
-		display: none;
 	}
 
-	&__burger {
-		z-index: 100;
-		flex-direction: column;
-		margin: (-6.5px / 2) 0;
-		margin-left: auto;
-		width: 39px;
-		color: $color-black;
-
-		span {
-			display: block;
-			margin: 6.5px 0;
-			width: 39px;
-			height: 2px;
-			background-color: currentColor;
-			transition: $duration-normal;
-		}
-
-		@include active {
-			span {
-				&:first-child {
-					transform: translate(0, 8px) rotate(-45deg);
-				}
-
-				&:last-child {
-					transform: translate(0, -6px) rotate(45deg);
-				}
-			}
-		}
+	@include mobile {
+		top:0;
 	}
 }

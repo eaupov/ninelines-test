@@ -15,10 +15,12 @@ const init = () => {
 
 		helpers.scrollTo($(id), speed, offset);
 		$(e.currentTarget).addClass('active');
-		/*header.closeMenu().then(() => {
-			$('.js-burger').removeClass('is-active');
-			helpers.scrollTo($(id), speed, offset);
-		});*/
+		if($('.header__burger').css('display')=='block'){
+			header.closeMenu().then(() => {
+				$('.js-burger').removeClass('is-active');
+				helpers.scrollTo($(id), speed, offset);
+			});
+		}
 	});
 };
 

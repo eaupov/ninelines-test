@@ -30,11 +30,7 @@ body {
 	text-rendering: optimizeLegibility;
 	text-size-adjust: 100%;
 	-webkit-tap-highlight-color: transparent;
-	background: url(../images/test.png) no-repeat top center transparent;
-	//background:#fafafa;
-	@include mobile {
-		background: url(../images/test_mobile.png) no-repeat top center transparent;
-	}
+	background:#fafafa;
 }
 
 main {
@@ -161,10 +157,10 @@ iframe {
 }
 
 section{
-	padding-bottom: 202px;/*DELELELELELELELELELELELELELELELELELELELELELELEL*/
+	padding-bottom: 202px;
 
 	@include mobile {
-		padding-bottom: 44px;/*DELELELELELELELELELELELELELELELELELELELELELELEL*/
+		padding-bottom: 44px;
 	}
 }
 
